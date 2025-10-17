@@ -1,7 +1,3 @@
-Image Packing PDF Generator
-Author: Task Solution
-Description: Packs images of random sizes into PDF using NFDH algorithm
-"""
 
 import os
 import argparse
