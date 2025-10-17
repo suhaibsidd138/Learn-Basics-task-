@@ -1,0 +1,51 @@
+Solution Approach
+A comprehensive implementation using the Next-Fit Decreasing Height (NFDH) packing algorithm
+
+Packing Algorithm: NFDH (Next-Fit Decreasing Height)
+Why NFDH?
+•
+Simple & Efficient: Easy to implement with good performance
+•
+Height Sorting: Packs larger images first for better space utilization
+•
+Row-Based: Creates horizontal shelves, fitting images left-to-right
+•
+Proven Results: Typically achieves 70-80% space efficiency
+How it Works:
+Sort images by height (tallest first)
+Create a new shelf (row) for the first image
+Try to fit next image on current shelf
+If it doesn't fit, create a new shelf below
+When page is full, create a new page
+Implementation Breakdown
+Step 1
+Image Preprocessing
+Load images, remove transparent backgrounds, crop to bounding box of visible content, and maintain original aspect ratios.
+
+PIL.Image → convert('RGBA') → crop to bbox → save processed
+Step 2
+Dimension Calculation
+Calculate scaled dimensions to fit on PDF page (A4: 210mm × 297mm) while preserving aspect ratios. Add margins and padding.
+
+scale_factor = min(max_width/img_width, max_height/img_height)
+Step 3
+NFDH Packing
+Sort images by height, pack into shelves using Next-Fit Decreasing Height algorithm, and create new pages when needed.
+
+for img in sorted_images: place_on_shelf_or_create_new()
+Step 4
+PDF Generation
+Use ReportLab to create PDF pages, draw images at calculated positions, and optionally compress images for smaller file size.
+
+canvas.drawImage(img_path, x, y, width, height)
+Key Features Implemented
+Core Features
+• Automatic image preprocessing
+• Aspect ratio preservation
+• Efficient space packing
+• Multi-page PDF support
+Bonus Features
+• Image compression (quality control)
+• CLI with argparse
+• Comprehensive error handling
+• Detailed logging & documentation
