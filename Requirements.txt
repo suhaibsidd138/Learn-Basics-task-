@@ -1,0 +1,19 @@
+# Image Packing PDF Generator - Dependencies
+
+# Core Libraries
+Pillow==10.1.0          # Image processing
+reportlab==4.0.7        # PDF generation
+
+# Optional (for additional features)
+numpy==1.26.2           # Numerical operations
+Implementation Highlights
+Class Structure
+• ImagePacker - Main orchestrator class
+• preprocess_image() - Handles transparency & cropping
+• pack_images_nfdh() - NFDH algorithm implementation
+• generate_pdf() - ReportLab PDF creation
+Bonus Features Included
+✅ Image compression with quality control
+✅ Full CLI with argparse
+✅ Comprehensive logging
+✅ Error handling & validation
